@@ -1,64 +1,42 @@
-# PDF Generator
+# i18n Package
 
-A simple yet powerful PDF generation tool written in TypeScript.
+## Introduction
+
+The `i18n` package is a simple Internationalization (i18n) library for handling translations in JavaScript projects. It allows you to set translations for different languages and retrieve them based on the current language.
 
 ## Installation
 
+To install the package, use the following npm command:
+
 ```bash
-npm install pdf-generator
-```
+npm install my-i18n-package
 
-## Usage
+const { I18n } = require('my-i18n-package');
 
-```javascript
-const PDFGenerator = require("pdf-generator");
+// Create an instance of the i18n class
+const i18n = new I18n();
 
-// Create a new PDFGenerator instance
-const pdfGenerator = new PDFGenerator();
+// Set translations for different languages
+i18n.setTranslations('en', {
+  greeting: 'Hello',
+  farewell: 'Goodbye'
+});
 
-// Add content to the PDF
-pdfGenerator
-  .addText("Hello, this is a PDF generated using PDFGenerator!", {
-    fontSize: 20,
-    align: "center",
-  })
-  .addPage()
-  .addText("This is page 2 of the PDF.", {
-    y: 100,
-    align: "center",
-  });
+i18n.setTranslations('fr', {
+  greeting: 'Bonjour',
+  farewell: 'Au revoir'
+});
 
-// Save the PDF
-pdfGenerator.save();
-```
+// Set the current language
+i18n.setLanguage('en');
 
-## API
+// Example: Get translations
+console.log(i18n.t('greeting')); // Output: Hello
+console.log(i18n.t('farewell')); // Output: Goodbye
 
-### `PDFGenerator(options?: PDFGeneratorOptions)`
+// Change the current language
+i18n.setLanguage('fr');
 
-Creates a new instance of PDFGenerator with optional options.
-
-- `options.filename`: Specify the filename for the generated PDF. Default is `'output.pdf'`.
-
-### `addText(text: string, options?: TextOptions): PDFGenerator`
-
-Adds text to the PDF document.
-
-- `text`: The text content to add.
-- `options`: Optional parameters for text formatting, such as fontSize, font, alignment, etc.
-
-### `addPage(): PDFGenerator`
-
-Adds a new page to the PDF document.
-
-### `save(): void`
-
-Saves the PDF document to the specified filename.
-
-## Example
-
-Check the `example` directory for an example usage of the PDFGenerator.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+// Example: Get translations in French
+console.log(i18n.t('greeting')); // Output: Bonjour
+console.log(i18n.t('farewell')); // Output: Au revoir

@@ -1,6 +1,6 @@
 {
   "name": "kwengrinternationalization",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "internationalization",
   "main": "./src/index.js",
   "scripts": {
@@ -18,6 +18,6 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "kwengrclitools": "^1.0.3"
+    "kwengrclitools": "^1.0.4"
   }
 }
